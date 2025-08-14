@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TalentRankerX - Candidate Stats</title>
+    <script src="https://live.zwidgets.com/js-sdk/1.0.5/ZohoEmbededAppSDK.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-slate-200 via-blue-100 to-slate-300 min-h-screen text-slate-900 font-sans"
+  >
+    <!-- Header -->
+    <header class="py-6 text-center">
+      <h2
+        class="text-4xl font-extrabold bg-cyan-500 bg-clip-text text-transparent"
+      >
+        TalentRankerX - Candidate Stats
+      </h2>
+    </header>
+
+    <!-- Lead Info -->
+    <div
+      id="leadInfo"
+      class="max-w-4xl mx-auto mb-6 bg-gradient-to-br from-slate-100 via-blue-50 to-slate-200 border border-blue-300 rounded-xl py-6 px-6 shadow-lg text-lg tracking-wide backdrop-blur-sm"
+    ></div>
+
+    <!-- Stats Info -->
+    <div
+      id="statsInfo"
+      class="max-w-4xl mx-auto mb-8 bg-gradient-to-br from-blue-50 via-slate-100 to-blue-100 border border-blue-300 rounded-xl py-5 px-6 shadow-lg text-base tracking-wide"
+    ></div>
+
+    <!-- Chart Controls -->
+    <div id="chartControls" class="flex justify-center gap-4 flex-wrap mb-6">
+      <button
+        onclick="showChart('bar')"
+        class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:from-blue-500 hover:to-indigo-500 transition-all duration-300"
+      >
+        Bar Chart
+      </button>
+      <button
+        onclick="showChart('pie')"
+        class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:from-blue-500 hover:to-indigo-500 transition-all duration-300"
+      >
+        Pie Chart
+      </button>
+      <button
+        onclick="showChart('line')"
+        class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:from-blue-500 hover:to-indigo-500 transition-all duration-300"
+      >
+        Line Chart
+      </button>
+    </div>
+
+    <!-- Chart Wrapper -->
+    <div
+      id="chartWrapper"
+      class="relative w-full max-w-4xl h-[65vh] mx-auto rounded-xl bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 border border-blue-500 shadow-xl hidden"
+    >
+      <canvas id="statsChart" class="p-4"></canvas>
+    </div>
+
+    <!-- External JS -->
+    <script src="../js/three.js"></script>
+  </body>
+</html>

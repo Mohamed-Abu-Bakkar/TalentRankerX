@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zoho CRM Help Assistant</title>
+  <!-- <script src="https://live.zwidgets.com/js-sdk/1.0.5/ZohoEmbededAppSDK.min.js"></script> -->
+  <script src="https://live.zwidgets.com/js-sdk/1.0.5/ZohoEmbededAppSDK.min.js"></script>
+  <!-- <script src="https://live.zwidgets.com/js-sdk/1.4/ZohoEmbededAppSDK.min.js"></script> -->
+  <script defer src="../js/ai.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script> 
+  
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    .fade-in {
+      animation: fadeIn 0.4s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /*  Mic animation */
+.mic-pulse {
+  animation: pulse 1.2s infinite;
+  transition: background-color 0.3s ease;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 132, 255, 0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(255,0,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,0,0,0); }
+}
+.mic-active {
+  background-color: #10b981; /* Tailwind green-500 */
+}
+
+
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-x: auto;
+      background-color: #1f2937;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    #chatContainer::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    #chatContainer::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen flex items-center justify-center p-4 sm:p-6">
+
+  <div class="w-full max-w-2xl flex flex-col gap-4">
+    <div class="text-center text-gray-400 text-sm">
+      Zoho CRM Help Assistant powered by TeamDefault
+    </div>
+
+    <div id="chatContainer"
+         class="flex flex-col gap-2 p-4 bg-white/10 rounded-xl backdrop-blur-md h-[65vh] sm:h-[70vh] overflow-y-auto shadow-inner scroll-smooth overflow-x-hidden break-words">
+    </div>
+
+    <div class="flex flex-wrap gap-2 items-center">
+      <input
+        id="promptInput"
+        type="text"
+        placeholder="Ask me about Zoho CRM or Deluge..."
+        class="flex-grow min-w-[200px] p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all"
+      />
+
+      <button
+        id="micBtn"
+        class="w-12 h-12 bg-[#2e2e2e] rounded-full flex items-center justify-center hover:scale-105 transition-transform "
+      >
+        <span class="material-icons text-white">mic</span>
+      </button>
+
+      <button
+        onclick="sendMessage()"
+        class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-5 py-2 rounded-lg hover:from-purple-600 hover:to-indigo-500 transition-all shadow-lg"
+      >
+        Send
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>

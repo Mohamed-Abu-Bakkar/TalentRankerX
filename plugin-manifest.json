@@ -1,0 +1,4 @@
+{
+  "service": "CRM",
+  "whitelisted-domains": ["https://leetcode-api-pied.vercel.app"]
+}
